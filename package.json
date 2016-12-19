@@ -1,0 +1,67 @@
+{
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "jsesc": "^2.2.0",
+    "minimist": "^1.2.0",
+    "postgresql-query": "^0.0.2",
+    "multiparty": "^4.1.2",
+    "node-uuid": "^1.4.7"
+  },
+  "devDependencies": {
+    "chokidar": "^1.6.0",
+    "chokidar-cli": "^1.2.0",
+    "jstml": "^1.2.2",
+    "less": "^2.6.0",
+    "less-plugin-autoprefix": "^1.5.1",
+    "less-plugin-clean-css": "^1.5.1",
+    "uglify-js": "^2.6.2",
+    "jshint": "^2.9.1"
+  },
+  "jshintConfig": {
+    "curly": false,
+    "immed": true,
+    "newcap": true,
+    "plusplus": true,
+    "quotmark": "single",
+    "unused": false,
+    "strict": false,
+    "mocha": false,
+    "browser": true,
+    "node": true
+  },
+  "scripts": {
+    "admin-css-vendor": "cat admin/vendor/css/* > admin/public/css/vendor.min.css",
+    "admin-css-src": "lessc --silent --strict-math=on --autoprefix --clean-css admin/src/less/style.less > admin/public/css/style.min.css",
+    "admin-css": "npm run admin-css-vendor && npm run admin-css-src",
+    
+    "admin-js-vendor": "cat admin/vendor/js/*.js > admin/public/js/vendor.min.js",
+    "admin-js-src": "uglifyjs admin/src/js/*.js admin/src/js/lib/*.js admin/src/js/components/*.js admin/src/tpl/templates.js > admin/public/js/app.min.js",
+    "admin-js": "npm run admin-js-vendor && npm run admin-js-src",
+    
+    "admin-templates": "jstml --dir=admin/src/tpl --namespace=APP.TEMPLATE > admin/src/tpl/templates.js",
+
+    "watch-admin-templates": "chokidar 'admin/src/tpl/**/*.jstml' -c 'npm run admin-templates && npm run admin-js' --polling",
+    "watch-admin-css": "chokidar 'admin/src/less/**/*.less' -c 'npm run admin-css' --polling",
+    "watch-admin-js": "chokidar 'admin/src/js/**/*.js' -c 'npm run admin-js' --polling",
+    "watch-admin": "npm run watch-admin-css & npm run watch-admin-templates & npm run watch-admin-js",
+
+    "admin": "npm run admin-templates && npm run admin-css && npm run admin-js && npm run watch-admin",
+
+    "web-css-vendor": "cat web/vendor/css/* > web/public/css/vendor.min.css",
+    "web-css-src": "lessc --silent --strict-math=on --autoprefix --clean-css web/src/less/style.less > web/public/css/style.min.css",
+    "web-css": "npm run web-css-vendor && npm run web-css-src",
+    
+    "web-js-vendor": "cat web/vendor/js/*.js > web/public/js/vendor.min.js",
+    "web-js-src": "uglifyjs web/src/js/*.js web/src/js/lib/*.js web/src/js/components/*.js web/src/tpl/templates.js > web/public/js/app.min.js",
+    "web-js": "npm run web-js-vendor && npm run web-js-src",
+    
+    "web-templates": "jstml --dir=web/src/tpl --namespace=APP.TEMPLATE > web/src/tpl/templates.js",
+
+    "watch-web-templates": "chokidar 'web/src/tpl/**/*.jstml' -c 'npm run web-templates && npm run web-js' --polling",
+    "watch-web-css": "chokidar 'web/src/less/**/*.less' -c 'npm run web-css' --polling",
+    "watch-web-js": "chokidar 'web/src/js/**/*.js' -c 'npm run web-js' --polling",
+    "watch-web": "npm run watch-web-css & npm run watch-web-templates & npm run watch-web-js",
+
+    "web": "npm run web-templates && npm run web-css && npm run web-js && npm run watch-web"
+  }
+}

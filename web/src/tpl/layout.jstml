@@ -1,0 +1,17 @@
+<header id="header" class="header">
+    <nav id="nav" class="nav">
+        <a href="/" data-translation-key="dashboard"></a>
+        <a href="/reports" data-translation-key="browse-reports"></a>
+        <a href="/about" data-translation-key="about"></a>
+    </nav>
+    <a id="logo" class="logo" href="/"><img src="/img/logo-en.png" /></a>
+    <div id="lang-switch" class="lang-switch" style="display:none">
+        <% data.enabledLanguages.forEach(function (lang) { %>
+            <span data-lang="<%=lang.code%>"><%=lang.code%></span>
+        <% }); %>
+    </div>
+</header>
+
+<div id="main" class="main">
+    {{yield}}
+</div>

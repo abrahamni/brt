@@ -1,0 +1,186 @@
+
+//
+// Auth
+//
+
+.admin-auth {
+    background-color: #f5f5f5;
+    height: 100%;
+    transform-style: preserve-3d;
+
+    > form {
+        position: relative;
+        top: 48%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #fff;
+    }
+    .admin-auth-logo {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .admin-auth-input {
+        margin-bottom: 1rem;
+
+        > label {
+            display: block;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        > input[type="text"],
+        > input[type="email"],
+        > input[type="password"] {
+            padding: 0.6rem 1rem;
+            border-radius: 3px;
+            border: none;
+            background-color: lighten(fade(@Orange, 50%), 55%);
+            border: 1px solid fade(@Orange, 70%);
+            color: #555;
+            font-weight: 200;
+            appearance: none; /* remove iOS styles */
+            box-shadow: none;
+            width: 100%;
+            padding: 1rem;
+            font-size: 2.2rem;
+
+            &::-webkit-input-placeholder { color: currentColor; }
+            &:-moz-placeholder { color: currentColor; }
+            &::-moz-placeholder { color: currentColor; }
+            &:-ms-input-placeholder { color: currentColor; }
+
+            &:focus {
+                background-color: #fff;
+                border-color: @Orange;
+                box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+                color: #111;
+                outline: 0;
+
+                &::-webkit-input-placeholder { color: currentColor; }
+                &:-moz-placeholder { color: currentColor; }
+                &::-moz-placeholder { color: currentColor; }
+                &:-ms-input-placeholder { color: currentColor; }
+            }
+        }
+    }
+    .admin-auth-button {
+        .clearfix;
+        margin-top: 2rem;
+        text-align: center;
+
+        > button,
+        > input[type="submit"] {
+            display: inline-block;
+            padding: 1.5rem 3rem 1.6rem;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 3px;
+            border: none;
+            color: #fff;
+            background-color: @Orange;
+            cursor: pointer;
+            transition: background-color 0.2s;
+
+            &:hover,
+            &:focus {
+                color: #fff;
+                background-color: darken(@Orange, 2%);
+                outline: 0;
+            }
+        }
+        > button + svg,
+        > input[type="submit"] + svg {
+            display: none;
+            position: relative;
+            top: 0.6rem;
+            left: 0.7rem;
+            width: 2.4rem;
+            height: 2.4rem;
+            animation: spin 1.3s infinite linear;
+            fill: #999;
+        }
+        > a {
+            float: right;
+            margin: 1.8rem 0.1rem 0 0;
+            border-bottom: 1px solid transparent;
+            color: @Red;
+            font-size: 13px;
+            transition: all 0.18s;
+
+            &:hover {
+                border-color: @Red;
+            }
+        }
+    }
+    &.form-submitting .admin-auth-button > button + svg {
+        display: inline-block;
+    }
+    .admin-auth-signup-message,
+    .admin-auth-success-message {
+        display: none;
+        padding: 12px 15px 13px;
+        border: 1px solid #f0f0f0;
+        font-size: 14px;
+        border-radius: 3px;
+        color: @Green;
+        text-align: center;
+
+        > a,
+        > a:hover {
+            margin-left: 5px;
+            color: @Orange;
+            text-decoration: underline;
+        }
+    }
+    .form-error {
+        display: none;
+        padding: 12px 15px 13px;
+        font-size: 14px;
+        border-radius: 3px;
+        background-color: @Red;
+        color: #fff;
+        margin-bottom: 10px;
+        box-shadow: none;
+
+        > a {
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.admin-login {
+    > form {
+        width: 400px;
+    }
+    .admin-auth-signup-message {
+        display: block;
+        margin-top: 30px;
+    }
+}
+
+.admin-signup {
+    > form {
+        width: 400px;
+    }
+    .admin-auth-title {
+        margin-bottom: 20px;
+        padding: 12px 15px 13px;
+        border: 1px solid #fff;
+        border-radius: 3px;
+        color: #777;
+        text-align: center;
+    }
+}
+
+.admin-reset-password,
+.admin-confirm-password {
+    > form {
+        width: 400px;
+    }
+}

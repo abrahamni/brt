@@ -1,0 +1,15 @@
+<div id="map" class="map">
+    <div id="map-canvas" class="map-canvas"></div>
+    <div id="map-filters" class="map-filters">
+        <h3>All reports</h3>
+        <% data.categorizationItems.slice(1, 3).forEach(function (item) { %>
+            <h3 data-item-id="<%=item.id%>"><%=(item.note || item.label)%></h3>
+            <ul>
+                <% item.options.forEach(function (option) { %>
+                    <li data-option-id="<%=option.id%>"><%=option.label%></li>
+                <% }); %>
+            </ul>
+        <% }); %>
+    </div>
+</div>
+<div id="form" class="form"></div>

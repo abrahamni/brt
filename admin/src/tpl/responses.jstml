@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="column column-20">
+        <div class="rl-search">
+            <input id="search" type="" name="search" data-translation-placeholder-key="search-placeholder" />
+        </div>
+        <div class="rl-status-filters">
+            <h3 data-translation-key="filter-by-status"></h3>
+            <label><input type="radio" name="status" checked value=""><%=APP.LANG.text('filter-none')%></label>
+            <label><input type="radio" name="status" value="<%=APP.LANG.text('filter-active')%>"><%=APP.LANG.text('filter-active')%></label>
+            <label><input type="radio" name="status" value="<%=APP.LANG.text('filter-draft')%>"><%=APP.LANG.text('filter-draft')%></label>
+        </div>
+        <div class="rl-date-filters">
+            <h3 data-translation-key="filter-by-date"></h3>
+            <input type="text" name="date-from" value="2016-08-01" />
+            <input type="text" name="date-to" value="2016-10-14" />
+            <button><%=APP.LANG.text('apply-filters')%></button>
+        </div>
+    </div>
+    <div class="column column-80">
+        <div class="reports-list">
+            <%=APP.TEMPLATE._responseList(data)%>
+            <button class="rl-load-more" data-translation-key="load-more"></button>
+        </div>
+    </div>
+</div>

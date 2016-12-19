@@ -1,0 +1,30 @@
+<% if (Array.isArray(data.reports)) data.reports.forEach(function (r) { %>
+    <li class="column column-25">
+        <a class="rl-item" href="/view-report?id=<%=r.response_id%>">
+            <span class="rl-datetime"><%=APP.formatDate(r.datetime)%></span>
+            <% r.items.forEach(function (item) { %>
+                <% if (item.item_settings.show_in_short_story) { %>
+                    <% if (item.item_type === 'text') { %>
+                        <% if (item.value) { %>
+                            <div class="rli-text">
+                                <span><%=item.item_label%></span>
+                                <p><%=item.value%></p>
+                            </div>
+                        <% } %>
+                    <% } else { %>
+                        <div class="rli-choice">
+                            <span><%=item.item_label%></span>
+                            <p>
+                                <% if (item.item_type === 'choice' || item.item_type === 'scale' || item.item_type === 'location-choice') { %>
+                                    <%=item.option_label%>
+                                <% } else { %>
+                                    <%=(item.value || 'No Answer')%>
+                                <% } %>
+                            </p>
+                        </div>
+                    <% } %>
+                <% } %>
+            <% }); %>
+        </a>
+    </li>
+<% }); %>

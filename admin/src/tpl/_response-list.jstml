@@ -1,0 +1,23 @@
+<% if (data.responses) data.responses.forEach(function (response) { %>
+    <div class="rl-item" data-id="<%=response.response_id%>" data-status="<%=response.status%>">
+        <div class="rl-item-buttons">
+            <label>
+                <%=APP.LANG.text('item-status')%> 
+                <span class="rl-status rl-status-<%=response.status.toLowerCase()%>"><%=response.status%></span>
+            </label>
+            <% if (response.status !== 'Active') { %>
+                <div><button class="rl-item-button-approve"><%=APP.LANG.text('button-approve')%></button></div>
+            <% } %>
+            <!-- <div><button class="rl-item-button-edit"><%=APP.LANG.text('button-edit')%></button></div> -->
+            <div><button class="rl-item-button-delete"><%=APP.LANG.text('button-delete')%></button></div>
+        </div>
+        <ul class="rl-item-content">
+            <% response.items.forEach(function (item) { %>
+                <li class="rl-item-content-type-<%=item.item_type%>">
+                    <b><%=item.item_label%></b>
+                    <span><%=(item.option_label || item.value || '<i>' + APP.LANG.text('no-response') + '</i>')%></span>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+<% }); %>

@@ -1,0 +1,861 @@
+
+//
+// Layout
+//
+
+#app {
+    height: inherit;
+}
+
+.header {
+    position: fixed;
+    padding: 0 30px 0;
+    height: 70px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    z-index: 99999;
+    .clearfix;
+
+    img {
+        position: absolute;
+        left: 30px;
+        top: 6px;
+        width: 50px;
+    }
+}
+.sub-nav-visible .header {
+    height: 110px;
+}
+
+.nav {
+    display: inline-block;
+
+    .nav-active,
+    .nav-active:hover {
+        background-color: @Orange;
+        color: #fff;
+    }
+    > a {
+        display: inline-block;
+        float: left;
+        padding: 26px 25px;
+        height: 100%;
+        vertical-align: middle;
+        background: #fff;
+        border-right: 1px solid @Orange;
+        color: #777;
+        transition: all .12s ease 0;
+
+        &:first-child {
+            border-left: 1px solid @Orange;
+        }
+        &:hover {
+            background-color: lighten(@Orange, 48%);
+        }
+    }
+}
+
+.sub-nav {
+    position: absolute;
+    bottom: 0;
+    right: -30px;
+    left: -30px;
+    padding: 0 60px;
+    height: 40px;
+    background-color: lighten(@Orange, 46%);
+
+    .sub-nav-active,
+    .sub-nav-active:hover {
+        background-color: @Orange;
+        color: #fff;
+    }
+    > a {
+        display: inline-block;
+        float: left;
+        padding: 10px 15px;
+        height: 100%;
+        vertical-align: middle;
+        background: lighten(@Orange, 42%);
+        color: darken(@Orange, 20%);
+        transition: all .12s ease 0;
+
+        &:hover {
+            background-color: lighten(@Orange, 40%);
+        }
+    }
+}
+
+.h-save-button {
+    position: absolute;
+    right: 60px;
+    top: 6px;
+    z-index: 9;
+    display: inline-block;
+    padding: 0;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    background: none;
+    border: none;
+    color: #fff;
+
+    &:focus {
+        outline: 0;
+    }
+    span {
+        display: inline-block;
+        padding: 5px 15px 6px;
+        border-radius: 3px;
+        background-color: @Green;
+        transition-duration: 0.2s;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            background-color: darken(@Green, 5%);
+        }
+    }
+    em {
+        position: relative;
+        top: 5px;
+        display: none;
+        color: darken(@Orange, 20%);
+        font-style: normal;
+        font-weight: 300;
+    }
+    svg {
+        position: relative;
+        top: 2px;
+        display: none;
+        width: 24px;
+        height: 24px;
+        fill: @Orange;
+        animation: spin 1.3s infinite linear;
+        transition-duration: 0.2s;
+        overflow: hidden;
+    }
+    &.h-button-submitting {
+        span {
+            display: none;
+        }
+        svg {
+            display: inline-block;
+        }
+    }
+    &.h-button-saved {
+        span, svg {
+            display: none;
+        }
+        em {
+            display: inline-block;
+        }
+    }
+}
+
+.userbar {
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    font-size: 0.9em;
+
+    a {
+        display: inline-block;
+        color: @Orange;
+
+        &:hover {
+            color: @Blue;
+            text-decoration: underline;
+        }
+    }
+}
+
+.main {
+    min-height: 100%;
+    padding: 100px 30px 30px;
+    background-color: #f5f5f5;
+    .clearfix;
+}
+.sub-nav-visible .main {
+    padding-top: 140px;
+}
+
+
+
+
+
+
+//
+// Utitlities
+//
+
+.row {
+    position: relative;
+    .clearfix;
+
+    .column {
+        width: 100%;
+        display: inline-block;
+        float: left;
+    }
+    .column-5   { width: 5%;   }
+    .column-10  { width: 10%;  }
+    .column-15  { width: 15%;  }
+    .column-20  { width: 20%;  }
+    .column-25  { width: 25%;  }
+    .column-30  { width: 30%;  }
+    .column-35  { width: 35%;  }
+    .column-40  { width: 40%;  }
+    .column-45  { width: 45%;  }
+    .column-50  { width: 50%;  }
+    .column-55  { width: 55%;  }
+    .column-60  { width: 60%;  }
+    .column-65  { width: 65%;  }
+    .column-70  { width: 70%;  }
+    .column-75  { width: 75%;  }
+    .column-80  { width: 80%;  }
+    .column-85  { width: 85%;  }
+    .column-90  { width: 90%;  }
+    .column-95  { width: 95%;  }
+    .column-100 { width: 100%; }
+
+    .gutter {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .gutter-right {
+        padding-right: 10px;
+    }
+    .gutter-left {
+        padding-left: 10px;
+    }
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.unselectable {
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+       -moz-user-select: none;  /* Firefox all */
+        -ms-user-select: none;  /* IE 10+ */
+            user-select: none;  /* Likely future */ 
+}
+
+
+
+
+
+
+
+
+//
+// Global elements
+//
+
+.content-header {
+    position: relative;
+    height: 100px;
+    margin: 0 0 30px;
+    padding: 31px 0 33px;
+    border-bottom: 2px solid @Green;
+    .clearfix;
+
+    .tabs {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -47%);
+        font-size: 15px;
+        .clearfix;
+
+        > a {
+            display: inline-block;
+            float: left;
+            margin-right: 5px;
+            padding: 10px 15px 12px;
+            line-height: 1;
+            border-radius: 3px;
+            background-color: rgb(238, 241, 239);
+            transition-duration: 0.15s;
+
+            &:hover {
+                background-color: rgb(246, 249, 247);
+            }
+        }
+        .tab-active,
+        .tab-active:hover {
+            background-color: @Green;
+            color: #fff;
+        }
+    }
+
+    .buttons {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-47%);
+        font-size: 15px;
+        .clearfix;
+
+        > a {
+            // display: inline-block;
+            // float: left;
+            // margin-right: 5px;
+            // padding: 10px 15px 12px;
+            // line-height: 1;
+            // border-radius: 3px;
+            // background-color: rgb(238, 241, 239);
+            // transition-duration: 0.15s;
+
+            // &:hover {
+            //     background-color: rgb(246, 249, 247);
+            // }
+            float: left;
+            display: inline-block;
+            margin-right: 5px;
+            padding: 10px 15px 12px;
+            line-height: 1;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 3px;
+            border: none;
+            background-color: @Blue;
+            color: #fff;
+            transition-duration: 0.2s;
+            cursor: pointer;
+            outline: 0;
+
+            &:hover {
+                background-color: lighten(@Blue, 5%);
+            }
+        }
+        .button-active,
+        .button-active:hover {
+            // background-color: @Green;
+            // color: #fff;
+        }
+    }
+
+    > h2 {
+        display: inline-block;
+        font-size: 36px;
+        line-height: 1;
+        font-weight: 200;
+    }
+}
+
+.page-header {
+    position: relative;
+    height: 101px;
+    border-bottom: 1px solid #fff;
+
+    > h2 {
+        display: inline-block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: 300;
+        font-size: 32px;
+        line-height: 1;
+    }
+
+    .ph-action-buttons {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -28px;
+    }
+}
+
+.ph-action-buttons {
+    display: inline-block;
+    border: 0;
+
+    .ph-action-button {
+        position: relative;
+        display: inline-block;
+        float: left;
+        // height: 55px;
+        margin-left: 10px;
+        padding: 15px 30px 17px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 3px;
+        border: none;
+        color: #fff;
+        background-color: @Blue;
+        transition-duration: 0.2s;
+        cursor: pointer;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:hover,
+        &:focus {
+            color: #fff;
+            background-color: darken(@Blue, 5%);
+            outline: 0;
+        }
+    }
+    .ph-action-button > label {
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    .ph-action-button > svg {
+        position: relative;
+        display: none;
+        vertical-align: middle;
+        left: 7px;
+        width: 24px;
+        height: 24px;
+        animation: spin 1.3s infinite linear;
+        fill: rgba(255, 255, 255, 0.5);
+    }
+    .ph-action-button-pending > svg {
+        display: inline-block;
+    }
+    .ph-button-cancel {
+        background: none;
+        border: 1px solid fade(@Blue, 60%);
+        color: fade(@Blue, 60%);
+
+        &:hover {
+            background: none;
+            border-color: fade(@Blue, 90%);
+            color: fade(@Blue, 90%);
+        }
+    }
+}
+
+.progress-bar {
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+
+    > div,
+    > span {
+        position: relative;
+        height: 100%;
+        width: 0%;
+        display: block;
+        background-color: @Orange;
+        transition: 5s linear;
+        transition-property: width;
+    }
+
+    &.progress-bar-show {
+        > div,
+        > span {
+            width: 98%;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+//
+// Form Input
+//
+
+.input {
+    padding-bottom: 45px;
+    border-bottom: 1px solid #fff;
+}
+
+.input-header {
+    height: 54px;
+    padding: 16px 0;
+
+    > label,
+    > span {
+        display: inline-block;
+        vertical-align: middle;        
+        font-size: 14px;
+    }
+    > span {
+        margin-left: 4px;
+        color: rgba(0, 0, 0, 0.25);
+    }
+    > div {
+        float: right;
+        display: inline-block;
+        margin-left: 4px;
+        vertical-align: middle;
+    }
+    > div > label {
+        position: relative;
+        float: left;
+        overflow: hidden;
+        display: inline-block;
+        cursor: pointer;
+        margin-right: 3px;
+
+        span {
+            display: inline-block;
+            padding: 3px 4px 2px;
+            border-radius: 2px;
+            border: none;
+            background-color: none;
+            width: 28px;
+            height: 23px;
+            border: 1px solid fade(@Green, 80%);
+            color: fade(@Green, 80%);
+            font-size: 13px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-transform: capitalize;
+
+            &:hover {
+                color: @Green;
+                background-color: darken(#fff, 1.5%);
+            }
+        }
+
+        input {
+            position: absolute;
+            left: -50px;
+
+            &:checked ~ span {
+                // font-weight: bold;
+                border-color: @Green;
+                background-color: @Green;
+                color: #fff;
+            }
+        }
+    }
+    button {
+        display: inline-block;
+        margin-left: 3px;
+        padding: 2px 6px 3px;
+        font-size: 13px;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 2px;
+        border: none;
+        color: @Green;
+        background-color: #fff;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover,
+        &:focus {
+            color: @Green;
+            background-color: darken(#fff, 3%);
+            outline: 0;
+        }
+        &.b-lang-selected {
+            background-color: @Green;
+            color: #fff;
+        }
+    }
+    select {
+        display: inline-block;
+        margin-left: 5px;
+        vertical-align: middle;
+        text-transform: capitalize;
+        outline: 0;
+    }
+}
+
+.input-content {
+    input[type="text"],
+    textarea {
+        display: none;
+        width: 100%;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 2px;
+        transition-duration: 0.15s;
+        outline: 0;
+
+        &:focus {
+            border-color: lighten(@Blue, 10%);
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+        }
+        &:first-of-type {
+            display: block;
+        }
+    }
+    .mce-panel {
+        border: none;
+        background: none;
+    }
+    .mce-toolbar-grp {
+        background-color: rgba(0, 0, 0, 0.01);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+        .mce-btn-group {
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+        .mce-btn {
+            background-color: transparent;
+        }
+    }
+    .mce-tinymce {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 1px;
+        transition-duration: 0.2s;
+
+        &:first-of-type {
+            display: block;
+        }
+        iframe {
+            width: 99.9% !important;
+        }
+    }
+    .tinymce-focused {
+        border-color: lighten(@Blue, 10%);
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+    }
+}
+
+
+
+
+
+
+
+
+//
+// Modal Window
+//
+
+.ui-widget-overlay {
+    background-color: rgba(0, 0, 15, 0.3);
+}
+
+.ui-dialog {
+    background-color: #fff;
+    padding: 30px 32px;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 15, 0.2);
+
+    .ui-dialog-content {
+        padding: 0;
+    }
+    .ui-dialog-buttonpane {
+        border: 0;
+        margin: 0;
+        padding: 0;
+
+        .ui-dialog-buttonset {
+            float: none;
+        }
+        button {
+            margin: 0;
+            outline: 0;
+        }
+    }
+    .ui-dialog-titlebar,
+    .ui-dialog-titlebar-close {
+        display: none;
+    }
+}
+
+.admin-modal-confirm-action {
+    h2 {
+        margin-bottom: 8px;
+    }
+    .ui-dialog-buttonpane .ui-button {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 10px 16px 12px;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 3px;
+        border: none;
+        background-color: rgb(170, 170, 170);
+        box-shadow: 0 2px 0 0 rgb(145, 145, 145);
+        color: #fff;
+        transition-property: background-color, color, box-shadow;
+        transition-duration: 0.2s;
+        cursor: pointer;
+        outline: 0;
+
+        &:hover {
+            background-color: rgb(160, 160, 160);
+            box-shadow: 0 2px 0 0 rgb(130, 130, 130);
+            color: #fff;
+        }
+        &:first-child {
+            background-color: @Red;
+            box-shadow: 0 2px 0 0 darken(@Red, 22%);
+
+            &:hover {
+                background-color: darken(@Red, 7%);
+                box-shadow: 0 2px 0 0 darken(@Red, 27%);
+            }
+        }
+    }
+}
+
+.admin-modal-message {
+    h2 {
+        margin-bottom: 10px;
+        line-height: 1;
+    }
+    .ui-dialog-buttonpane .ui-button {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 10px 16px 12px;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 3px;
+        border: none;
+        background-color: @Blue;
+        box-shadow: 0 2px 0 0 darken(@Blue, 22%);
+        color: #fff;
+        transition-property: background-color, color, box-shadow;
+        transition-duration: 0.2s;
+        cursor: pointer;
+        outline: 0;
+
+        &:hover {
+            background-color: darken(@Blue, 7%);
+            box-shadow: 0 2px 0 0 darken(@Blue, 27%);
+            color: #fff;
+        }
+    }
+}
+
+
+
+
+
+
+
+//
+// jQuery UI
+//
+
+.ui-datepicker {
+    overflow: hidden;
+    width: auto;
+    min-width: 300px;
+    padding: 0;
+    border-radius: 0;
+    background-color: #fff;
+    box-shadow: 0 5px 70px 0 rgba(0, 0, 0, .4);
+
+    .ui-datepicker-group {
+        border-right: 1px solid rgba(0, 0, 0, .1);
+        padding-bottom: 50px;
+        margin-bottom: -40px;
+
+        &.ui-datepicker-group-last {
+            border-right: none;
+        }
+    }
+    .ui-datepicker-header {
+        color: #fff;
+        padding: 10px;
+        background-color: #007cf6;
+    }
+    .ui-datepicker-calendar {
+        box-sizing: border-box;
+        width: 280px;
+        margin: 10px;
+        
+        th {
+            font-weight: 300;
+            font-size: 13px;
+            td {
+                padding-bottom: 10px;
+            }
+        }
+        .ui-state-active {
+            background: @Blue !important;
+            color: #fff !important;
+        }
+        td,
+        td.ui-datepicker-unselectable.ui-state-disabled  {
+            a, span {
+                display: block;
+                width: 36px;
+                height: 36px;
+                text-align: center;
+                vertical-align: middle;
+                line-height: 2.2;
+                border-radius: 50%;
+
+                &.ui-state-active {
+                    background-color: none;
+                }
+            }
+            a:hover {
+                background-color: #D5F2FF 
+            }
+            &.ui-datepicker-other-month {
+                a, span { opacity: .4 }
+            }
+        }
+        td.ui-datepicker-unselectable.ui-state-disabled {
+            span { opacity: .3 }
+        } 
+    }
+    .ui-datepicker-week-end {
+        color: #ff3336;
+    }
+    .ui-state-default {
+        text-align: center;
+    }
+}
+
+.ui-widget-overlay {
+    background-color: rgba(0, 0, 15, 0.4);
+}
+
+.ui-dialog {
+    background-color: #fff;
+    padding: 30px 32px;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 15, 0.2);
+    z-index: 999;
+
+    .ui-dialog-content {
+        padding: 0;
+    }
+    .ui-dialog-buttonpane {
+        border: 0;
+        margin: 0;
+        padding: 0;
+
+        .ui-dialog-buttonset {
+            float: none;
+        }
+        button {
+            margin: 0;
+            outline: 0;
+        }
+    }
+    .ui-dialog-titlebar,
+    .ui-dialog-titlebar-close {
+        display: none;
+    }
+}

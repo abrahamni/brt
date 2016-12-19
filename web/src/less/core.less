@@ -1,0 +1,118 @@
+
+//
+// COLORS
+//
+
+@Red:    #ff3336;
+@Green:  #2fc09f;
+@Blue:   #007cf6;
+@Yellow: #fefd7f;
+@Orange: #ff9500;
+
+
+
+
+
+
+
+
+
+//
+// MIXINS
+//
+
+.clearfix() {
+    &:before,
+    &:after {
+        display: block;
+        content: '';
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+//
+// ANIMATIONS
+//
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+//
+// HTML RESET
+//
+
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+    height: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    height: inherit;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 16px;
+    color: #282828;
+}
+
+body, ul, ol, li, dl, dd, h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: block;
+    list-style-type: none;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}

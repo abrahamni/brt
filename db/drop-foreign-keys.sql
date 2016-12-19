@@ -1,0 +1,46 @@
+ALTER TABLE users DROP CONSTRAINT user_permission_fk;
+
+ALTER TABLE user_tokens DROP CONSTRAINT user_token_token_type_fk;
+ALTER TABLE user_tokens DROP CONSTRAINT user_token_user_id_fk;
+
+ALTER TABLE forms DROP CONSTRAINT form_status_fk;
+
+ALTER TABLE form_translations DROP CONSTRAINT form_translation_form_id_fk;
+ALTER TABLE form_translations DROP CONSTRAINT form_translation_lang_fk;
+
+ALTER TABLE form_sections DROP CONSTRAINT form_section_form_id_fk;
+
+ALTER TABLE form_section_translations DROP CONSTRAINT form_section_translation_section_id_fk;
+ALTER TABLE form_section_translations DROP CONSTRAINT form_section_translation_lang_fk;
+
+ALTER TABLE form_items DROP CONSTRAINT form_item_form_id_fk;
+ALTER TABLE form_items DROP CONSTRAINT form_item_section_id_fk;
+ALTER TABLE form_items DROP CONSTRAINT form_item_type_fk;
+
+ALTER TABLE form_item_translations DROP CONSTRAINT form_item_translation_item_id_fk;
+ALTER TABLE form_item_translations DROP CONSTRAINT form_item_translation_lang_fk;
+
+ALTER TABLE form_item_options DROP CONSTRAINT form_item_option_form_id_fk;
+ALTER TABLE form_item_options DROP CONSTRAINT form_item_option_section_id_fk;
+ALTER TABLE form_item_options DROP CONSTRAINT form_item_option_item_id_fk;
+
+ALTER TABLE form_item_option_translations DROP CONSTRAINT form_item_option_translation_option_id_fk;
+ALTER TABLE form_item_option_translations DROP CONSTRAINT form_item_option_translation_lang_fk;
+
+ALTER TABLE form_responses DROP CONSTRAINT form_response_form_id_fk;
+ALTER TABLE form_responses DROP CONSTRAINT form_response_status_fk;
+
+ALTER TABLE form_response_items DROP CONSTRAINT form_response_item_response_id_fk;
+ALTER TABLE form_response_items DROP CONSTRAINT form_response_item_form_id_fk;
+ALTER TABLE form_response_items DROP CONSTRAINT form_response_item_item_id_fk;
+ALTER TABLE form_response_items DROP CONSTRAINT form_response_item_option_id_fk;
+
+ALTER TABLE form_response_item_translations DROP CONSTRAINT form_response_item_translation_response_item_id_fk;
+ALTER TABLE form_response_item_translations DROP CONSTRAINT form_response_item_translation_lang_fk;
+
+ALTER TABLE form_response_intervals DROP CONSTRAINT form_response_interval_form_id_fk;
+
+ALTER TABLE form_response_interval_translations DROP CONSTRAINT form_response_interval_translation_interval_id_fk;
+ALTER TABLE form_response_interval_translations DROP CONSTRAINT form_response_interval_translation_lang_fk;
+
+ALTER TABLE ui_translations DROP CONSTRAINT ui_translation_lang_fk;

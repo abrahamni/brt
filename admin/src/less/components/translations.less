@@ -1,0 +1,163 @@
+
+.form-translations {
+    width: 100%;
+
+    .ft-item {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+
+        &:hover > .ft-save-item {
+            opacity: 1;
+        }
+
+        > div {
+            position: relative;
+            display: inline-block;
+            float: left;
+            margin-bottom: 10px;
+            width: 49%;
+            margin-right: 1%;
+
+            &:last-of-type {
+                margin-left: 1%;
+                margin-right: 0;
+            }
+
+            > em {
+                position: absolute;
+                display: inline-block;
+                padding: 11px 0;
+                width: 26px;
+                height: 100%;
+                font-size: 0.9em;
+                text-align: center;
+                background-color: @Blue;
+                font-style: normal;
+                color: #fff;
+            }
+            > input {
+                width: 100%;
+                font-size: 1.5em;
+                padding: 5px 8px 5px 1.45em;
+                background: none;
+                border: none;
+                border-bottom: 1px dashed #ccc;
+
+                &:focus {
+                    outline: 0;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    border-color: #aaa;
+                }
+                &[data-rtl="true"] {
+                    direction: rtl;
+                }
+            }
+        }
+    }
+    .ft-options {
+        clear: both;
+        margin-bottom: 30px;
+        width: 100%;
+        border-left: 1px solid #ccc;
+    }
+    .ft-option-item {
+        display: inline-block;
+        width: 100%;
+
+        > div {
+            position: relative;
+            display: inline-block;
+            float: left;
+            width: 46%;
+            margin-left: 3%;
+            margin-right: 1%;
+
+            &:last-of-type {
+                margin-right: 0;
+                margin-left: 4%;
+            }
+
+            > input {
+                width: 100%;
+                padding: 5px 8px 5px 8px;
+                background: none;
+                border: none;
+                border-bottom: 1px dashed #ccc;
+
+                &:focus {
+                    outline: 0;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    border-color: #aaa;
+                }
+                &[data-rtl="true"] {
+                    direction: rtl;
+                }
+            }
+        }
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        &:hover > .ft-save-option {
+            opacity: 1;
+        }
+    }
+}
+
+
+
+.ui-translations {
+    width: 100%;
+
+    .uit-item {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        > div {
+            position: relative;
+            display: inline-block;
+            float: left;
+            width: 49%;
+            margin-right: 1%;
+
+            &:last-of-type {
+                margin-left: 1%;
+                margin-right: 0;
+            }
+
+            > em {
+                position: absolute;
+                display: inline-block;
+                padding: 11px 0;
+                width: 26px;
+                height: 100%;
+                font-size: 0.9em;
+                text-align: center;
+                background-color: @Blue;
+                font-style: normal;
+                color: #fff;
+            }
+            > input {
+                width: 100%;
+                font-size: 1.5em;
+                padding: 5px 8px 5px 1.45em;
+                background: none;
+                border: none;
+                border-bottom: 1px dashed #ccc;
+
+                &:focus {
+                    outline: 0;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    border-color: #aaa;
+                }
+                &[data-rtl="true"] {
+                    direction: rtl;
+                }
+            }
+        }
+    }
+}

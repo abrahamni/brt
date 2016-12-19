@@ -1,0 +1,87 @@
+{
+    "lang": "en",
+    "title": "TITLE ABC",
+    "description": "",
+    "sections": [{
+        "title": "Default section",
+        "description": "",
+        "items": [{
+            "label": "Where you asked ---?", 
+            "hint": "",
+            "type": "choice",
+            "required": true,
+            "options": [
+                { "label": "Yes" },
+                { "label": "No" }
+            ],            
+            "items": [{
+                "label": "Did you ---?",
+                "type": "choice",
+                "options": [
+                    { "label": "Yes, ---" },
+                    { "label": "No, ---" }
+                ]
+            }]
+        }, {
+            "label": "What area ---?",
+            "type": "choice",
+            "allow_multiple": false,
+            "required": true,
+            "options": [
+                { "label": "AAA" },
+                { "label": "BBB" },
+                { "label": "Others" }
+            ]
+        }, {
+            "label": "Why you were ---?",
+            "type": "choice",
+            "allow_multiple": false,
+            "required": true,
+            "options": [
+                { "label": "ABC", "parent_area_english_label": "AAA" },
+                { "label": "Excess Baggage", "parent_area_english_label": "Airports" },
+                { "label": "Others", "parent_area_english_label": "Others" }
+            ]
+        }, {
+            "label": "City",
+            "type": "location-choice",
+            "required": true,
+            "options": [
+                { "label": "ABC", "lat": 12.345, "lng": 23.456 },
+
+            ]
+        }, {
+            "label": "Date",
+            "type": "datetime",
+            "required": true
+        }, {
+            "label": "How ---?",
+            "type": "number",
+            "required": true
+        }, {
+            "label": "A title for the report",
+            "type": "text"
+        }, {
+            "label": "Detailed comment for the report",
+            "type": "text",
+            "multiline": true
+        }, {
+            "label": "Contact details",
+            "type": "choice",
+            "options": [
+                { "label": "I want to stay anonymous" },
+                { "label": "I want to share my contact information" }
+            ],
+            "items": [{
+                "label": "Your full name",
+                "type": "text"
+            }, {
+                "label": "Your email address",
+                "type": "text"
+            }, {
+                "label": "Your contact number",
+                "type": "text"
+            }]
+        }]
+    }]
+}

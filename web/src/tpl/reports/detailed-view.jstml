@@ -1,0 +1,37 @@
+<div id="report-view" class="report-view">
+
+    <% if (data.report) { %>
+        <% var r = data.report; %>
+
+        <div class="rv-header">
+            <h2><%=APP.formatDate(r.datetime)%></h2>
+            <a href="/reports" data-translation-key="back-to-reports-browser"></a>
+        </div>
+
+        <div class="rv-content">
+            <% r.items.forEach(function (item) { %>
+                <% if (item.item_type === 'text') { %>
+                    <% if (item.value) { %>
+                        <div class="rli-text">
+                            <span><%=item.item_label%></span>
+                            <p><%=item.value%></p>
+                        </div>
+                    <% } %>
+                <% } else { %>
+                    <div class="rli-choice">
+                        <span><%=item.item_label%></span>
+                        <p>
+                            <% if (item.item_type === 'choice' || item.item_type === 'scale' || item.item_type === 'location-choice') { %>
+                                <%=item.option_label%>
+                            <% } else { %>
+                                <%=(item.value || 'No Answer')%>
+                            <% } %>
+                        </p>
+                    </div>
+                <% } %>
+            <% }); %>
+        </div>
+
+    <% } %>
+
+</div>

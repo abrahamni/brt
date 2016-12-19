@@ -1,0 +1,18 @@
+<div id="reports-list" class="reports-list">
+    <div class="rl-header">
+        <h2 data-translation-key="browse-reports"></h2>
+        <div class="rl-date-filters">
+            <h3 data-translation-key="filter-by-date"></h3>
+            <input type="text" name="date-from" value="" />
+            <input type="text" name="date-to" value="" />
+            <button data-translation-key="apply-range"></button>
+        </div>
+        <input class="rl-search" data-translation-placeholder-key="search-reports" />
+    </div>
+    <div class="rl-content lazyview">
+        <ul id="rl-items" class="row">
+            <%=APP.TEMPLATE.reports._items(data)%>
+        </ul>
+        <button class="rl-load-more" data-translation-key="load-more"></button>
+    </div>
+</div>

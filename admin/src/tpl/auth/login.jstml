@@ -1,0 +1,12 @@
+<div id="admin-login" class="admin-auth admin-login">
+    <form method="POST">
+        <div class="admin-auth-logo"><img src="/img/logo.png" /></div>
+        <div class="admin-auth-input"><input name="email" type="text" data-translation-placeholder-key="username" autofocus /></div>
+        <div class="admin-auth-input"><input name="password" type="password" data-translation-placeholder-key="password" /></div>
+        <div class="form-error"></div>
+        <div class="admin-auth-button">
+            <input class="button-primary" type="submit" value="<%=APP.LANG.text('login')%>" />
+            <svg><use xlink:href="/img/sprite.svg#icon-loading"></svg>
+        </div>
+    </form>
+</div>

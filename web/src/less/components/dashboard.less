@@ -1,0 +1,171 @@
+
+.stats {
+    display: inline-block;
+    width: 100%;
+    padding: 30px;
+    color: black;
+    font-weight: 300;
+    text-align: center;
+
+    ul {
+        .clearfix;
+    }
+    li {
+        display: inline-block;
+        width: 33.33%;
+        background-color: rgba(255, 255, 255, 0.85);
+        border-top: 4px solid @Green;
+        padding: 20px 0 30px;
+        float: left;
+
+        &:first-of-type {
+            border-top-color: @Orange;
+        }
+        &:last-of-type {
+            border-top-color: @Red;
+        }
+    }
+    b {
+        display: block;
+        margin-bottom: 5px;
+        color: black;
+        font-size: 6em;
+        font-weight: 200;
+    }
+}
+
+.latest-reports-list {
+    min-height: inherit;
+
+    h2 {
+        margin-bottom: 1em;
+        font-weight: bold;
+        font-size: 2em;
+        text-align: center;
+    }
+}
+
+.dashboard-charts {
+    margin: 10px 30px 0;
+
+    h2 {
+        margin-top: 1.8em;
+        margin-bottom: 1em;
+        font-weight: bold;
+        font-size: 2em;
+        text-align: center;
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
+    > div {
+        height: 500px;
+    }
+}
+
+
+
+
+.marker-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto !important;
+    height: auto !important;
+    margin-left: -18px!important;
+    margin-top: -20px !important;
+
+    > div {
+        position: relative;
+        border: 3px solid currentColor;
+        border-radius: 100%;
+        color: fade(@Red, 90%);
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.03);
+
+        > span {
+            display: block;
+            position: relative;
+            width: 24px;
+            height: 24px;
+            margin: 3px;
+            border-radius: 100%;
+            background-color: currentColor;
+            text-align: center;
+
+            i {
+                font-style: normal;
+                color: white;
+            }
+        }
+    }
+}
+.marker-icon-small {
+    > div {
+        > span {
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+        }
+    }
+}
+.marker-icon-medium {
+    > div {
+        > span {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+        }
+    }
+}
+.marker-icon-large {
+    > div {
+        > span {
+            width: 75px;
+            height: 75px;
+            line-height: 75px;
+        }
+    }
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    top: 13px;
+    right: 13px;
+    font-size: 20px;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.7);
+    transition-duration: 0.15s;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background: fade(#000, 85%);
+}
+.leaflet-popup-content {
+    min-width: 150px;
+    color: #fff;
+}
+.map-popup {
+    padding-bottom: 10px;
+
+    > span {
+        display: block;
+        font-size: 24px;
+        color: @Yellow;
+    }
+    > h4 {
+        margin: 10px 0 0;
+        color: @Green;
+        font-weight: normal;
+        text-transform: capitalize;
+    }
+    > p {
+        margin: 0;
+        line-height: 1.2;
+        font-size: 16px;
+    }
+}

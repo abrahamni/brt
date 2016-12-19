@@ -1,0 +1,61 @@
+<div id="map" class="map">
+    <div id="map-canvas" class="map-canvas"></div>
+    <div id="map-player" class="map-player">
+        <input class="date-from" type="text" readonly="readonly" value="">
+        <span class="button-play"></span>
+        <span class="button-pause"></span>
+        <input class="date-to" type="text" readonly="readonly" value="">
+        <div class="sub-controls">
+            <span class="button-stop"></span>
+            <span class="button-prev"></span>
+            <span class="button-next"></span>
+            <div class="slider-line"></div>
+        </div>
+    </div>
+</div>
+
+<div id="form-header" class="form-header">
+    <% if (data.form && Array.isArray(data.form.items) && data.form.items[0]) { %>
+        <h2><%=data.form.items[0].label%></h2>
+        <% data.form.items[0].options.forEach(function (option) { %>
+            <span data-item-id="<%=data.form.items[0].id%>" data-option-id="<%=option.id%>"><%=option.label%></span>
+        <% }); %>
+    <% } %>
+</div>
+
+<form id="form" class="form"></form>
+
+<div id="stats" class="stats">
+    <ul>
+        <li>
+            <b><%=data.form.items[0].items[0].options[1].responses_count%></b>
+            <%=APP.LANG.text('not-done')%>
+        </li>
+        <li>
+            <b><%=data.form.items[0].options[1].responses_count%></b>
+            <%=APP.LANG.text('good')%>
+        </li>
+        <li>
+            <b><%=data.form.items[0].items[0].options[0].responses_count%></b>
+            <%=APP.LANG.text('done')%>
+        </li>
+    </ul>
+</div>
+
+<div id="reports-list" class="reports-list latest-reports-list">
+    <h2 data-translation-key="latest-reports"></h2>
+    <div class="rl-content">
+        <ul id="rl-items" class="row">
+            <%=APP.TEMPLATE.reports._items(data)%>
+        </ul>
+    </div>
+</div>
+
+<div class="dashboard-charts">
+    <h2>Areas of government</h2>
+    <div id="chart"></div>
+    <h2>Reasons for asking/not asking </h2>
+    <div id="chart2"></div>
+</div>
+
+<div id="footer" class="footer"><div>&copy; BRt</div></div>

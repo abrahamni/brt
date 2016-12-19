@@ -1,0 +1,11 @@
+<div id="map-filters" class="map-filters">
+    <h3 class="mcb-all-items"><%=APP.LANG.text('map-caption-all-items')%></h3>
+    <% if (Array.isArray(data)) data.forEach(function (item) { %>
+        <h3 class="mcb-item" data-item-id="<%=item.id%>"><%=(item.note || item.label)%></h3>
+        <ul>
+            <% item.options.forEach(function (option) { %>
+                <li class="mcb-option" data-item-id="<%=item.id%>" data-option-id="<%=option.id%>"><%=option.label%></li>
+            <% }); %>
+        </ul>
+    <% }); %>
+</div>

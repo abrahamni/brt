@@ -1,0 +1,8 @@
+<div class="static-page">
+    <div class="st-header">
+        <h2>Sample page header.</h2>
+    </div>
+    <div class="st-content">
+        Sample page content.
+    </div>
+</div>

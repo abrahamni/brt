@@ -1,0 +1,25 @@
+<header id="header" class="header">
+    <img src="/img/logo.png" />
+    <nav id="nav" class="nav">
+        <a href="/" class="n-active" data-translation-key="nav-reports"></a>
+        <a href="/translations" data-translation-key="nav-translations"></a>
+    </nav>
+    <nav id="sub-nav" class="sub-nav">
+        <% if (location.pathname.indexOf('/translations') !== -1) { %>
+            <a href="/translations/ui" data-translation-key="nav-ui-translations"></a>
+            <a href="/translations/form" data-translation-key="nav-form-translations"></a>
+        <% } %>
+        <button class="h-save-button">
+            <span data-translation-key="save-form"></span>
+            <svg><use xlink:href="/img/sprite.svg#icon-loading"></svg>
+            <em data-translation-key="form-saved"></em>
+        </button>
+    </nav>
+    <div class="userbar">
+        <a href="/logout" data-translation-key="logout"></a>
+    </div>
+</header>
+
+<section id="main" class="main">
+    {{yield}}
+</section>
