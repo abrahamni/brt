@@ -600,7 +600,7 @@ function createFormResponse(params, callback) {
             }
         } else if (formItem.type === 'datetime' || formItem.type === 'number') {
             if (responseItem.value) {
-                fields.value = responseItem.value;
+                fields.value = stripHtmlTags(responseItem.value);
             } else {
                 savedResponseItemsCount += 1;
                 return finished(transaction);
@@ -647,7 +647,7 @@ function createFormResponse(params, callback) {
                 fields: {
                     response_item_id: responseItemId,
                     lang: t.lang,
-                    value: t.text
+                    value: stripHtmlTags(t.text)
                 }
             };
         });
@@ -1478,8 +1478,8 @@ function getLineChartData(req, res, params) {
 //        method: 'GET',
 //        host: 'apple.com',
 //        path: '/ipad'
-//    }, function (body) {
-//        console.log(body); 
+//    }, function (err, response) {
+//        console.log(response.body); 
 //    });
 //
 function request(options, params, callback) {
@@ -1883,6 +1883,14 @@ function isDate(obj) {
 //
 function isFunction(obj) {
     return typeof obj === 'function';
+}
+
+
+//
+// Remove all HTML tags from a string.
+//
+function stripHtmlTags(str) {
+    return typeof str === 'string' ? str.replace(/<[^>]+>/ig, '') : '';
 }
 
 

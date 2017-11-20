@@ -139,6 +139,18 @@
 
 
 
+    APP.FORM.renderEditor = function (data) {
+        jQuery.when(
+            APP.service.getForm({ lang: data.lang }),
+            APP.service.getFormResponse({ lang: data.lang, id: APP.params.id })
+        ).done(function (xhrForm, xhrFormResponse) {
+            data.form = xhrForm[0].data;
+            data.response = xhrFormResponse[0].data;
+        });
+    };
+
+
+
     APP.FORM.renderTranslationsEditing = function (data) {
         APP.service.getFormTranslations({}, function (response) {
             if (!response.error) {

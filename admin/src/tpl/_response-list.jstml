@@ -8,14 +8,14 @@
             <% if (response.status !== 'Active') { %>
                 <div><button class="rl-item-button-approve"><%=APP.LANG.text('button-approve')%></button></div>
             <% } %>
-            <!-- <div><button class="rl-item-button-edit"><%=APP.LANG.text('button-edit')%></button></div> -->
+            <!-- <div><a class="rl-item-button-edit" href="/edit?id=<%=response.response_id%>"><%=APP.LANG.text('button-edit')%></a></div> -->
             <div><button class="rl-item-button-delete"><%=APP.LANG.text('button-delete')%></button></div>
         </div>
         <ul class="rl-item-content">
             <% response.items.forEach(function (item) { %>
                 <li class="rl-item-content-type-<%=item.item_type%>">
                     <b><%=item.item_label%></b>
-                    <span><%=(item.option_label || item.value || '<i>' + APP.LANG.text('no-response') + '</i>')%></span>
+                    <span><%=(item.option_label || _.escape(item.value) || '<i>' + APP.LANG.text('no-response') + '</i>')%></span>
                 </li>
             <% }); %>
         </ul>

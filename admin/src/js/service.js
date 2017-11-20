@@ -63,6 +63,10 @@
         return ajax('GET', '/form/responses', data, callback);
     };
 
+    APP.service.getFormResponse = function (data, callback) {
+        return ajax('GET', '/form/response', data, callback);
+    };
+
     APP.service.deleteFormResponse = function (data, callback) {
         return ajax('DELETE', '/form/response', data, callback);
     };

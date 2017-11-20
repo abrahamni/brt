@@ -24,11 +24,13 @@
     // Logged-in user routes.
     //
     APP.route['/']                  = function (data) { APP.FORM.renderListing(data) };
+    APP.route['/edit']              = function (data) { APP.FORM.renderEditor(data) };
     APP.route['/logout']            = function (data) { APP.AUTH.logOut(data) };
     APP.route['/categorizations']   = function (data) { APP.FORM.handleChoicesAndCategorizations(data) };
     APP.route['/translations']      = function (data) { APP.LANG.renderUITranslations(data) };
     APP.route['/translations/form'] = function (data) { APP.FORM.renderTranslationsEditing(data) };
     APP.route['/translations/ui']   = function (data) { APP.LANG.renderUITranslations(data) };
+    APP.route['/datalab']           = function (data) { APP.DATALAB.render(data) };
 
 
 
