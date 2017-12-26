@@ -3,7 +3,7 @@
     <% if (data) data.items.forEach(function (item) { %>
         <% if (item.item_type !== 'text' && (item.value || item.option_label)) { %>
             <h4><%=item.item_label.replace(/_/g, ' ')%></h4>
-            <p><%=(item.option_label || item.value)%></p>
+            <p><%=(item.option_label || _.escape(item.value))%></p>
         <% } %>
     <% }); %>
 </div>

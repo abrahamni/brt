@@ -14,7 +14,7 @@
                     <% if (item.value) { %>
                         <div class="rli-text">
                             <span><%=item.item_label%></span>
-                            <p><%=item.value%></p>
+                            <p><%=_.escape(item.value)%></p>
                         </div>
                     <% } %>
                 <% } else { %>
@@ -24,7 +24,7 @@
                             <% if (item.item_type === 'choice' || item.item_type === 'scale' || item.item_type === 'location-choice') { %>
                                 <%=item.option_label%>
                             <% } else { %>
-                                <%=(item.value || 'No Answer')%>
+                                <%=_.escape(item.value || 'No Answer')%>
                             <% } %>
                         </p>
                     </div>
