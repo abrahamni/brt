@@ -44,6 +44,11 @@
             buttons: {},
             close: function() {
                 formEl.reset();
+            },
+            open: function() {
+                kamaDatepicker('datetime-6', {
+                    markToday: true
+                });
             }
         };
         modalSettings.buttons[APP.LANG.text('submit')] = handleSubmit;
@@ -90,12 +95,12 @@
                 dependentSelectClone.find('option[data-parent-option-id="' + this.value + '"]').clone().appendTo(dependentSelect);
             });
         });
-
-        modal.find('.form-item-datetime > .form-item-content > input').datepicker({ 
-            dateFormat: 'yy-mm-dd', 
-            firstDay: 1,
-            maxDate: new Date()
-        });
+        
+        // modal.find('.form-item-datetime > .form-item-content > input').datepicker({ 
+        //     dateFormat: 'yy-mm-dd', 
+        //     firstDay: 1,
+        //     maxDate: new Date()
+        // });
     }
 
 
@@ -254,7 +259,7 @@
         } else {
             switch (item.type) {
                 case 'datetime':
-                    html = '<input type="text" value="' + APP.formatDate(new Date()) + '" />';
+                    html = '<input type="text" id="datetime-' + item.id + '" value="' + outputAsJalaliDate(new Date()) + '" />';
                     break;
                 case 'number':
                     html = '<input type="number" value="0" />';

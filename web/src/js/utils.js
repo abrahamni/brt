@@ -194,7 +194,7 @@
             time = ' ' + hour + ':' + minute;
         }
 
-        return year + '-' + month + '-' + day + time;
+        return year + '/' + month + '/' + day + time;
     };
 
 

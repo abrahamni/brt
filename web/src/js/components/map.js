@@ -55,34 +55,42 @@
 
     Map.prototype.initDatePickers = function () {
         var that = this;
+
+        kamaDatepicker('map-date-from', { markToday: true });
+        kamaDatepicker('map-date-to', { markToday: true });
+
         var pickers = jQuery('.date-from, .date-to');
 
-        function hideDatePicker() {
-            pickers.datepicker('hide');
-        }
-
-        function removeHash() {
-            setTimeout(function () {
-                jQuery('.ui-datepicker tbody a').each(function () {
-                    this.removeAttribute('href');
-                    jQuery(this).on('click', hideDatePicker);
-                });
-            }, 0);
-        }
-
-        pickers.on('click', removeHash);
-        pickers.datepicker({
-            dateFormat: 'yy-mm-dd',
-            firstDay: 1,
-            changeMonth: true,
-            changeYear: true,
-            maxDate: new Date(),
-            onChangeMonthYear: removeHash,
-            onSelect: function (newValue) {
-                jQuery(this).attr('value', newValue);
-                that.getMapData();
-            }
+        pickers.on('change', function () {
+            that.getMapData();
         });
+
+        // function hideDatePicker() {
+        //     pickers.datepicker('hide');
+        // }
+
+        // function removeHash() {
+        //     setTimeout(function () {
+        //         jQuery('.ui-datepicker tbody a').each(function () {
+        //             this.removeAttribute('href');
+        //             jQuery(this).on('click', hideDatePicker);
+        //         });
+        //     }, 0);
+        // }
+
+        // pickers.on('click', removeHash);
+        // pickers.datepicker({
+        //     dateFormat: 'yy-mm-dd',
+        //     firstDay: 1,
+        //     changeMonth: true,
+        //     changeYear: true,
+        //     maxDate: new Date(),
+        //     onChangeMonthYear: removeHash,
+        //     onSelect: function (newValue) {
+        //         jQuery(this).attr('value', newValue);
+        //         that.getMapData();
+        //     }
+        // });
     };
 
 

@@ -1,10 +1,10 @@
 <div id="map" class="map">
     <div id="map-canvas" class="map-canvas"></div>
     <div id="map-player" class="map-player">
-        <input class="date-from" type="text" readonly="readonly" value="">
+        <input id="map-date-from" class="date-from" type="text" readonly="readonly" value="">
         <span class="button-play"></span>
         <span class="button-pause"></span>
-        <input class="date-to" type="text" readonly="readonly" value="">
+        <input id="map-date-to" class="date-to" type="text" readonly="readonly" value="">
         <div class="sub-controls">
             <span class="button-stop"></span>
             <span class="button-prev"></span>
